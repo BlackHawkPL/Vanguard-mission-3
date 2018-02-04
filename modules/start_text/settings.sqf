@@ -17,7 +17,7 @@ switch (side player) do { //Checks what team the player is on
 	case west: { //If player is west he receives this message
 
 		_startTextArray = [
-			["TITLEQUOTE", "OP Road Warrior part 3"],
+			["TITLEQUOTE", "The Finale"],
 			["TEXT", "Charkia, Altis"],
 			["DATETIME"]
 		];
@@ -27,7 +27,7 @@ switch (side player) do { //Checks what team the player is on
 	case east: { //If player is east he receives this message
 
 		_startTextArray = [
-			["TITLEQUOTE", "OP Road Warrior part 3"],
+			["TITLEQUOTE", "The Finale"],
 			["TEXT", "Near Telos, Altis"],
 			["DATETIME"]
 		];

@@ -127,5 +127,4 @@ if (isServer) then { //This scope is only for the server
 		//if (!(isNil "UnitName")) then { UnitName setVariable ["ace_medical_medicClass",1,true]; };
 		//if (!(isNil "UnitName")) then { UnitName setVariable ["ace_medical_medicClass",2,true]; };
 
-		[{if (time > 0 && {getTerrainGrid != 2}) then {setTerrainGrid 2;}}, 0] call CBA_fnc_addPerFrameHandler;
 	};
