@@ -1,3 +1,3 @@
 
 //array containing vehicles that will have option to spawn AI driver in them
-#define VEHS [veh1, veh2]
+#define VEHS call {_vehs = []; {if (typeOf _x isKindOf 'Tank') then {_vehs pushBack _x};} foreach vehicles; _vehs}

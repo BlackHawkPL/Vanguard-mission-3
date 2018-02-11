@@ -20,7 +20,7 @@
 
 //#include "a3_endscreen\root.sqf"
 #include "acre_setup\root.sqf"
-//#include "ai_drivers\root.sqf"
+#include "ai_drivers\root.sqf"
 //#include "aiskill\root.sqf"
 //#include "ao_limit\root.sqf"
 //#include "building_replacer\root.sqf"
