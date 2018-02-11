@@ -268,14 +268,6 @@ NEWTAB("APPENDIX A - VEHICLE LOADOUT:")
 	<br/> 1 x surgical kit
 ENDTAB;
 
-["ACE_fieldDressing",10] call FNC_AddItemVehicle;
-["ACE_elasticBandage",10] call FNC_AddItemVehicle;
-["ACE_quikclot",10] call FNC_AddItemVehicle;
-["ACE_epinephrine",5] call FNC_AddItemVehicle;
-["ACE_morphine",5] call FNC_AddItemVehicle;
-["ACE_packingBandage",10] call FNC_AddItemVehicle;
-["ACE_tourniquet",5] call FNC_AddItemVehicle;
-
 }; //End of west case
 
 case east: { //If player is east he receives this briefing
