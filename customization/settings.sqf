@@ -1,10 +1,18 @@
 ace_cookoff_enable = false;
-//ace_cookoff_ammoCookoffDuration = 0;
+ace_cookoff_ammoCookoffDuration = 0;
 ace_cookoff_enableAmmoCookoff = false;
 ace_hearing_enableCombatDeafness = false;
 ACE_weather_syncWind = false;
 ACE_wind = [0,0,0];
 setWind [2,2, true];
+
+ace_repair_engineerSetting_repair = 1;
+ace_repair_engineerSetting_wheel = 1;
+ace_repair_repairDamageThreshold = 1;
+ace_repair_repairDamageThreshold_engineer = 1;
+ace_repair_fullRepairLocation = 1;
+ace_repair_engineerSetting_fullRepair = 1;
+ace_repair_wheelRepairRequiredItems = 1;
 
 if (isServer) then { //This scope is only for the server
 
@@ -65,7 +73,6 @@ if (isServer) then { //This scope is only for the server
 		};
 		
 		// Abrams sections
-		
 		if ((paramsArray select 1) == 1) then {
 			{deletevehicle _x} foreach [v3, v4];
 		};
@@ -73,7 +80,6 @@ if (isServer) then { //This scope is only for the server
 		if ((paramsArray select 1) == 2) then {
 			{deletevehicle _x} foreach [v1, v2];
 		};
-		
 	};
 	
 	ace_cookoff_enable = false;
@@ -95,6 +101,18 @@ if (isServer) then { //This scope is only for the server
 
 	condition = 0;
 	
+	{
+        _x addeventhandler ["fired", {
+            _this spawn {
+                params ["_v","","_m","","_a"];
+                if (_a isKindOf 'ShellBase') then {
+                    sleep 0.2;
+                    [_v, [gunner _v,_m,0.75]] remoteExec ["setWeaponReloadingTime", gunner _v];
+                };
+            };
+        }];
+    } forEach call {_vehs = []; {if (typeOf _x == "rhsusf_m1a2sep1wd_usarmy") then {_vehs pushBack _x};} foreach vehicles; _vehs;};
+
 };
 
 	if (!isDedicated) then { //This scope is only for the player
