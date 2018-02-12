@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={17884.309,88.442558,15708.599};
-		dir[]={-0.68594611,-0.59245163,-0.42253181};
-		up[]={-0.50444704,0.8055886,-0.31073263};
-		aside[]={-0.52447963,1.4627585e-007,0.85145378};
+		pos[]={17862.15,93.38945,15637.141};
+		dir[]={0,-0.70710683,0.70710683};
+		up[]={0,0.70710677,0.70710677};
+		aside[]={0.99999994,0,-0};
 	};
 };
 binarizationWanted=0;
@@ -269,7 +269,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="TVT134 OP ROAD WARRIOR PART 3 V7";
+		briefingName="TVT134 OP ROAD WARRIOR PART 3 V1";
 		overviewText="The final mission in the OP Vanguard event.";
 		timeOfChanges=1800.0002;
 		startWeather=0.30000001;
@@ -1435,8 +1435,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={18967.781,26.178446,13486.957};
-						angles[]={0,5.9751635,0};
+						position[]={18967.781,26.178858,13486.957};
+						angles[]={0,5.9751692,0};
 					};
 					side="West";
 					flags=7;
@@ -1444,12 +1444,12 @@ class Mission
 					{
 						rank="CAPTAIN";
 						init="[this, ""US_COY_CMNDR"", ""Alpha 6 | Alpha COY HQ""] call FNC_GearScript;";
-						description="Alpha 6 | COY Commander";
+						description="Alpha 6 | COY Commander@Alpha 6";
 						isPlayable=1;
 					};
 					id=523;
 					type="B_officer_F";
-					atlOffset=0.02258873;
+					atlOffset=0.023000717;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -1983,7 +1983,7 @@ class Mission
 			{
 			};
 			id=522;
-			atlOffset=0.02258873;
+			atlOffset=0.023000717;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -2029,7 +2029,7 @@ class Mission
 					{
 						rank="LIEUTENANT";
 						init="[this, ""US_PLTN_CMMNDR"", ""Red 1 | Alpha COY 1 PLT""] call FNC_GearScript;  [this, ""ACRE_PRC343"", 2] call FNC_SetRadio;                               [this, ""ACRE_PRC148"", 2] call FNC_SetRadio;";
-						description="Red 1 | PLT Commander";
+						description="Red 1 | PLT Commander@Red 1";
 						isPlayable=1;
 					};
 					id=534;
@@ -2355,7 +2355,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={18855.58,27.569328,13604.587};
+						position[]={18855.58,27.569326,13604.587};
 						angles[]={0,4.4658265,0};
 					};
 					side="West";
@@ -2364,17 +2364,37 @@ class Mission
 					{
 						rank="SERGEANT";
 						init="[this, ""US_TC"", ""Red 2 | Alpha COY 1 PLT""] call FNC_GearScript;           [this, ""ACRE_PRC343"", 3] call FNC_SetRadio;                               [this, ""ACRE_PRC148"", 2] call FNC_SetRadio;";
-						description="Red 2 | Bradley Commander";
+						description="Red 2 | Bradley Commander@Red 2";
 						isPlayable=1;
 					};
 					id=542;
 					type="B_crew_F";
+					atlOffset=-1.9073486e-006;
 					class CustomAttributes
 					{
 						class Attribute0
 						{
-							property="uo_unitDescription";
-							expression="_this setVariable ['uo_unitDescription', _value];";
+							property="acex_headless_blacklist";
+							expression="_this setVariable [""acex_headless_blacklist"",_value,true]";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
 							class Value
 							{
 								class data
@@ -2386,11 +2406,11 @@ class Mission
 											"STRING"
 										};
 									};
-									value="true";
+									value="Male06ENG";
 								};
 							};
 						};
-						class Attribute1
+						class Attribute2
 						{
 							property="pitch";
 							expression="_this setpitch _value;";
@@ -2409,7 +2429,26 @@ class Mission
 								};
 							};
 						};
-						nAttributes=2;
+						class Attribute3
+						{
+							property="uo_unitDescription";
+							expression="_this setVariable ['uo_unitDescription', _value];";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="true";
+								};
+							};
+						};
+						nAttributes=4;
 					};
 				};
 				class Item1
@@ -2616,6 +2655,7 @@ class Mission
 			{
 			};
 			id=541;
+			atlOffset=-1.9073486e-006;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -2652,7 +2692,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={18951.006,26.172327,13648.724};
+						position[]={18951.006,26.172325,13648.724};
 						angles[]={0,4.4658265,0};
 					};
 					side="West";
@@ -2661,11 +2701,12 @@ class Mission
 					{
 						rank="SERGEANT";
 						init="[this, ""US_PSG"", ""Red 3 | Alpha COY 1 PLT""] call FNC_GearScript;          [this, ""ACRE_PRC343"", 4] call FNC_SetRadio;                               [this, ""ACRE_PRC148"", 2] call FNC_SetRadio;";
-						description="Red 3 | PLT Sergeant";
+						description="Red 3 | PLT Sergeant@Red 3";
 						isPlayable=1;
 					};
 					id=546;
 					type="B_Soldier_SL_F";
+					atlOffset=-1.9073486e-006;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -2951,6 +2992,7 @@ class Mission
 			{
 			};
 			id=545;
+			atlOffset=-1.9073486e-006;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -2987,7 +3029,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={18915.357,26.134794,13632.021};
+						position[]={18915.357,26.134836,13632.021};
 						angles[]={0,4.4658265,0};
 					};
 					side="West";
@@ -2996,12 +3038,11 @@ class Mission
 					{
 						rank="SERGEANT";
 						init="[this, ""US_TC"", ""Red 4 | Alpha COY 1 PLT""] call FNC_GearScript;           [this, ""ACRE_PRC343"", 5] call FNC_SetRadio;                               [this, ""ACRE_PRC148"", 2] call FNC_SetRadio;";
-						description="Red 4 | Bradley Commander";
+						description="Red 4 | Bradley Commander@Red 4";
 						isPlayable=1;
 					};
 					id=550;
 					type="B_crew_F";
-					atlOffset=-4.196167e-005;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -3287,8 +3328,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={18920.848,25.860741,13631.112};
-						angles[]={0,4.2106762,0};
+						position[]={18920.848,25.860786,13631.113};
+						angles[]={0,4.2106767,0};
 					};
 					side="West";
 					flags=5;
@@ -3296,10 +3337,12 @@ class Mission
 					{
 						rank="SERGEANT";
 						init="[this, ""US_MEDIC"", ""Red 4 | Alpha COY 1 PLT""] call FNC_GearScript;        [this, ""ACRE_PRC343"", 5] call FNC_SetRadio;                               [this, ""ACRE_PRC148"", 2] call FNC_SetRadio;";
+						description="Red 4 | Medic";
 						isPlayable=1;
 					};
 					id=912;
 					type="B_medic_F";
+					atlOffset=1.9073486e-006;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -3333,7 +3376,7 @@ class Mission
 									{
 										type[]=
 										{
-											"SCALAR"
+											"BOOL"
 										};
 									};
 									value=0;
@@ -3355,7 +3398,7 @@ class Mission
 											"STRING"
 										};
 									};
-									value="male06eng";
+									value="Male06ENG";
 								};
 							};
 						};
@@ -3405,7 +3448,6 @@ class Mission
 			{
 			};
 			id=549;
-			atlOffset=-4.196167e-005;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -3443,7 +3485,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={18888.766,26.015928,13547.756};
-						angles[]={0,5.8367014,0};
+						angles[]={0,5.8366952,0};
 					};
 					side="West";
 					flags=7;
@@ -3451,7 +3493,7 @@ class Mission
 					{
 						rank="SERGEANT";
 						init="[this, ""US_SL"", ""Red 5 | Alpha COY 1 PLT""] call FNC_GearScript;           [this, ""ACRE_PRC343"", 6] call FNC_SetRadio;                               [this, ""ACRE_PRC148"", 2] call FNC_SetRadio;";
-						description="Red 5 | Squad Leader";
+						description="Red 5 | Squad Leader@Red 5";
 						isPlayable=1;
 					};
 					id=558;
@@ -3460,8 +3502,27 @@ class Mission
 					{
 						class Attribute0
 						{
-							property="uo_unitDescription";
-							expression="_this setVariable ['uo_unitDescription', _value];";
+							property="acex_headless_blacklist";
+							expression="_this setVariable [""acex_headless_blacklist"",_value,true]";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
 							class Value
 							{
 								class data
@@ -3473,11 +3534,11 @@ class Mission
 											"STRING"
 										};
 									};
-									value="true";
+									value="Male12ENG";
 								};
 							};
 						};
-						class Attribute1
+						class Attribute2
 						{
 							property="pitch";
 							expression="_this setpitch _value;";
@@ -3496,7 +3557,26 @@ class Mission
 								};
 							};
 						};
-						nAttributes=2;
+						class Attribute3
+						{
+							property="uo_unitDescription";
+							expression="_this setVariable ['uo_unitDescription', _value];";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="true";
+								};
+							};
+						};
+						nAttributes=4;
 					};
 				};
 				class Item1
@@ -4051,7 +4131,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={18947.467,25.307367,13570.005};
-						angles[]={0,5.8425331,0};
+						angles[]={0,5.842525,0};
 					};
 					side="West";
 					flags=7;
@@ -4059,7 +4139,7 @@ class Mission
 					{
 						rank="SERGEANT";
 						init="[this, ""US_SL"", ""Red 6 | Alpha COY 1 PLT""] call FNC_GearScript;           [this, ""ACRE_PRC343"", 7] call FNC_SetRadio;                               [this, ""ACRE_PRC148"", 2] call FNC_SetRadio;";
-						description="Red 6 | Squad Leader";
+						description="Red 6 | Squad Leader@Red 6";
 						isPlayable=1;
 					};
 					id=568;
@@ -4068,8 +4148,27 @@ class Mission
 					{
 						class Attribute0
 						{
-							property="uo_unitDescription";
-							expression="_this setVariable ['uo_unitDescription', _value];";
+							property="acex_headless_blacklist";
+							expression="_this setVariable [""acex_headless_blacklist"",_value,true]";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
 							class Value
 							{
 								class data
@@ -4081,11 +4180,11 @@ class Mission
 											"STRING"
 										};
 									};
-									value="true";
+									value="Male10ENG";
 								};
 							};
 						};
-						class Attribute1
+						class Attribute2
 						{
 							property="pitch";
 							expression="_this setpitch _value;";
@@ -4104,7 +4203,26 @@ class Mission
 								};
 							};
 						};
-						nAttributes=2;
+						class Attribute3
+						{
+							property="uo_unitDescription";
+							expression="_this setVariable ['uo_unitDescription', _value];";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="true";
+								};
+							};
+						};
+						nAttributes=4;
 					};
 				};
 				class Item1
@@ -4640,7 +4758,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={18999.59,24.359949,13602.456};
-						angles[]={0,6.0009785,0};
+						angles[]={0,6.0009828,0};
 					};
 					side="West";
 					flags=7;
@@ -4648,7 +4766,7 @@ class Mission
 					{
 						rank="SERGEANT";
 						init="[this, ""US_SL"", ""Red 7 | Alpha COY 1 PLT""] call FNC_GearScript;           [this, ""ACRE_PRC343"", 8] call FNC_SetRadio;                               [this, ""ACRE_PRC148"", 2] call FNC_SetRadio;";
-						description="Red 7 | Squad Leader";
+						description="Red 7 | Squad Leader@Red 7";
 						isPlayable=1;
 					};
 					id=578;
@@ -4657,8 +4775,27 @@ class Mission
 					{
 						class Attribute0
 						{
-							property="uo_unitDescription";
-							expression="_this setVariable ['uo_unitDescription', _value];";
+							property="acex_headless_blacklist";
+							expression="_this setVariable [""acex_headless_blacklist"",_value,true]";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
 							class Value
 							{
 								class data
@@ -4670,11 +4807,11 @@ class Mission
 											"STRING"
 										};
 									};
-									value="true";
+									value="Male11ENG";
 								};
 							};
 						};
-						class Attribute1
+						class Attribute2
 						{
 							property="pitch";
 							expression="_this setpitch _value;";
@@ -4693,7 +4830,26 @@ class Mission
 								};
 							};
 						};
-						nAttributes=2;
+						class Attribute3
+						{
+							property="uo_unitDescription";
+							expression="_this setVariable ['uo_unitDescription', _value];";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="true";
+								};
+							};
+						};
+						nAttributes=4;
 					};
 				};
 				class Item1
@@ -5228,7 +5384,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={19014.441,29.234531,13384.224};
+						position[]={19014.439,29.234495,13384.224};
 						angles[]={0,4.4658265,0};
 					};
 					side="West";
@@ -5237,7 +5393,7 @@ class Mission
 					{
 						rank="LIEUTENANT";
 						init="[this, ""US_PLTN_CMMNDR"", ""White 1 | Alpha COY 2 PLT""] call FNC_GearScript;                                                           [this, ""ACRE_PRC343"", 9] call FNC_SetRadio;                               [this, ""ACRE_PRC148"", 3] call FNC_SetRadio;";
-						description="White 1 | PLT Commander";
+						description="White 1 | PLT Commander@White 1";
 						isPlayable=1;
 					};
 					id=588;
@@ -5246,8 +5402,27 @@ class Mission
 					{
 						class Attribute0
 						{
-							property="uo_unitDescription";
-							expression="_this setVariable ['uo_unitDescription', _value];";
+							property="acex_headless_blacklist";
+							expression="_this setVariable [""acex_headless_blacklist"",_value,true]";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
 							class Value
 							{
 								class data
@@ -5259,11 +5434,11 @@ class Mission
 											"STRING"
 										};
 									};
-									value="true";
+									value="Male07ENG";
 								};
 							};
 						};
-						class Attribute1
+						class Attribute2
 						{
 							property="pitch";
 							expression="_this setpitch _value;";
@@ -5282,7 +5457,26 @@ class Mission
 								};
 							};
 						};
-						nAttributes=2;
+						class Attribute3
+						{
+							property="uo_unitDescription";
+							expression="_this setVariable ['uo_unitDescription', _value];";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="true";
+								};
+							};
+						};
+						nAttributes=4;
 					};
 				};
 				class Item1
@@ -5534,7 +5728,7 @@ class Mission
 					{
 						rank="SERGEANT";
 						init="[this, ""US_TC"", ""White 2 | Alpha COY 2 PLT""] call FNC_GearScript;         [this, ""ACRE_PRC343"", 10] call FNC_SetRadio;                               [this, ""ACRE_PRC148"", 3] call FNC_SetRadio;";
-						description="White 2 | Bradley Commander";
+						description="White 2 | Bradley Commander@White 2";
 						isPlayable=1;
 					};
 					id=596;
@@ -5543,8 +5737,27 @@ class Mission
 					{
 						class Attribute0
 						{
-							property="uo_unitDescription";
-							expression="_this setVariable ['uo_unitDescription', _value];";
+							property="acex_headless_blacklist";
+							expression="_this setVariable [""acex_headless_blacklist"",_value,true]";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
 							class Value
 							{
 								class data
@@ -5556,11 +5769,11 @@ class Mission
 											"STRING"
 										};
 									};
-									value="true";
+									value="Male08ENG";
 								};
 							};
 						};
-						class Attribute1
+						class Attribute2
 						{
 							property="pitch";
 							expression="_this setpitch _value;";
@@ -5579,7 +5792,26 @@ class Mission
 								};
 							};
 						};
-						nAttributes=2;
+						class Attribute3
+						{
+							property="uo_unitDescription";
+							expression="_this setVariable ['uo_unitDescription', _value];";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="true";
+								};
+							};
+						};
+						nAttributes=4;
 					};
 				};
 				class Item1
@@ -5823,7 +6055,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={19013.598,29.51589,13363.488};
-						angles[]={0,5.7582345,0};
+						angles[]={0,5.7582426,0};
 					};
 					side="West";
 					flags=7;
@@ -5831,7 +6063,7 @@ class Mission
 					{
 						rank="SERGEANT";
 						init="[this, ""US_SL"", ""White 3 | Alpha COY 2 PLT""] call FNC_GearScript;         [this, ""ACRE_PRC343"", 11] call FNC_SetRadio;                               [this, ""ACRE_PRC148"", 3] call FNC_SetRadio;";
-						description="White 3 | Squad Leader";
+						description="White 3 | Squad Leader@White 3";
 						isPlayable=1;
 					};
 					id=600;
@@ -5840,8 +6072,27 @@ class Mission
 					{
 						class Attribute0
 						{
-							property="uo_unitDescription";
-							expression="_this setVariable ['uo_unitDescription', _value];";
+							property="acex_headless_blacklist";
+							expression="_this setVariable [""acex_headless_blacklist"",_value,true]";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
 							class Value
 							{
 								class data
@@ -5853,11 +6104,11 @@ class Mission
 											"STRING"
 										};
 									};
-									value="true";
+									value="Male08ENG";
 								};
 							};
 						};
-						class Attribute1
+						class Attribute2
 						{
 							property="pitch";
 							expression="_this setpitch _value;";
@@ -5876,7 +6127,26 @@ class Mission
 								};
 							};
 						};
-						nAttributes=2;
+						class Attribute3
+						{
+							property="uo_unitDescription";
+							expression="_this setVariable ['uo_unitDescription', _value];";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="true";
+								};
+							};
+						};
+						nAttributes=4;
 					};
 				};
 				class Item1
@@ -6449,8 +6719,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={19071.531,28.615282,13395.051};
-						angles[]={0,5.7878447,0};
+						position[]={19071.531,28.615316,13395.05};
+						angles[]={0,5.7878432,0};
 					};
 					side="West";
 					flags=7;
@@ -6458,7 +6728,7 @@ class Mission
 					{
 						rank="SERGEANT";
 						init="[this, ""US_SL"", ""White 4 | Alpha COY 2 PLT""] call FNC_GearScript;         [this, ""ACRE_PRC343"", 12] call FNC_SetRadio;                               [this, ""ACRE_PRC148"", 3] call FNC_SetRadio;";
-						description="White 4 | Squad Leader";
+						description="White 4 | Squad Leader@White 4";
 						isPlayable=1;
 					};
 					id=610;
@@ -6467,8 +6737,27 @@ class Mission
 					{
 						class Attribute0
 						{
-							property="uo_unitDescription";
-							expression="_this setVariable ['uo_unitDescription', _value];";
+							property="acex_headless_blacklist";
+							expression="_this setVariable [""acex_headless_blacklist"",_value,true]";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
 							class Value
 							{
 								class data
@@ -6480,11 +6769,11 @@ class Mission
 											"STRING"
 										};
 									};
-									value="true";
+									value="Male11ENG";
 								};
 							};
 						};
-						class Attribute1
+						class Attribute2
 						{
 							property="pitch";
 							expression="_this setpitch _value;";
@@ -6503,7 +6792,26 @@ class Mission
 								};
 							};
 						};
-						nAttributes=2;
+						class Attribute3
+						{
+							property="uo_unitDescription";
+							expression="_this setVariable ['uo_unitDescription', _value];";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="true";
+								};
+							};
+						};
+						nAttributes=4;
 					};
 				};
 				class Item1
@@ -7038,7 +7346,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={19056.457,31.043074,13313.49};
-						angles[]={0,4.2462802,0};
+						angles[]={0,4.2462816,0};
 					};
 					side="West";
 					flags=7;
@@ -7046,7 +7354,7 @@ class Mission
 					{
 						rank="LIEUTENANT";
 						init="[this, ""US_TC"", ""Green 1 | Charlie COY 1 PLT""] call FNC_GearScript;       [this, ""ACRE_PRC343"", 13] call FNC_SetRadio;                              [this, ""ACRE_PRC148"", 4] call FNC_SetRadio;";
-						description="Green 1 | M1A2 Section Commander";
+						description="Green 1 | M1A2 Section Commander@Green 1";
 						isPlayable=1;
 					};
 					id=625;
@@ -7055,8 +7363,27 @@ class Mission
 					{
 						class Attribute0
 						{
-							property="uo_unitDescription";
-							expression="_this setVariable ['uo_unitDescription', _value];";
+							property="acex_headless_blacklist";
+							expression="_this setVariable [""acex_headless_blacklist"",_value,true]";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
 							class Value
 							{
 								class data
@@ -7068,11 +7395,11 @@ class Mission
 											"STRING"
 										};
 									};
-									value="true";
+									value="Male04ENG";
 								};
 							};
 						};
-						class Attribute1
+						class Attribute2
 						{
 							property="pitch";
 							expression="_this setpitch _value;";
@@ -7091,7 +7418,26 @@ class Mission
 								};
 							};
 						};
-						nAttributes=2;
+						class Attribute3
+						{
+							property="uo_unitDescription";
+							expression="_this setVariable ['uo_unitDescription', _value];";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="true";
+								};
+							};
+						};
+						nAttributes=4;
 					};
 				};
 				class Item1
@@ -7396,7 +7742,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={19065.311,30.954273,13302.265};
-						angles[]={0,4.2462802,0};
+						angles[]={0,4.2462816,0};
 					};
 					side="West";
 					flags=7;
@@ -7404,7 +7750,7 @@ class Mission
 					{
 						rank="SERGEANT";
 						init="[this, ""US_TC"", ""Green 2 | Charlie COY 1 PLT""] call FNC_GearScript;       [this, ""ACRE_PRC343"", 14] call FNC_SetRadio;                              [this, ""ACRE_PRC148"", 4] call FNC_SetRadio;";
-						description="Green 2 | M1A2 Commander";
+						description="Green 2 | M1A2 Commander@Green 2";
 						isPlayable=1;
 					};
 					id=630;
@@ -7810,8 +8156,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={19073.201,30.88833,13289.854};
-						angles[]={0,4.2462802,0};
+						position[]={19073.201,30.888382,13289.854};
+						angles[]={0,4.2462816,0};
 					};
 					side="West";
 					flags=7;
@@ -7819,18 +8165,36 @@ class Mission
 					{
 						rank="LIEUTENANT";
 						init="[this, ""US_SCOUT_SL"", ""Ghost 1 | Ghost Platoon""] call FNC_GearScript;     [this, ""ACRE_PRC343"", 13] call FNC_SetRadio;                              [this, ""ACRE_PRC148"", 4] call FNC_SetRadio;";
-						description="Ghost 1 | Squad Leader";
+						description="Ghost 1 | Squad Leader@Ghost 1";
 						isPlayable=1;
 					};
 					id=635;
 					type="B_officer_F";
-					atlOffset=-5.1498413e-005;
 					class CustomAttributes
 					{
 						class Attribute0
 						{
-							property="uo_unitDescription";
-							expression="_this setVariable ['uo_unitDescription', _value];";
+							property="acex_headless_blacklist";
+							expression="_this setVariable [""acex_headless_blacklist"",_value,true]";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
 							class Value
 							{
 								class data
@@ -7842,11 +8206,11 @@ class Mission
 											"STRING"
 										};
 									};
-									value="true";
+									value="Male11ENG";
 								};
 							};
 						};
-						class Attribute1
+						class Attribute2
 						{
 							property="pitch";
 							expression="_this setpitch _value;";
@@ -7865,7 +8229,26 @@ class Mission
 								};
 							};
 						};
-						nAttributes=2;
+						class Attribute3
+						{
+							property="uo_unitDescription";
+							expression="_this setVariable ['uo_unitDescription', _value];";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="true";
+								};
+							};
+						};
+						nAttributes=4;
 					};
 				};
 				class Item1
@@ -8056,7 +8439,6 @@ class Mission
 			{
 			};
 			id=634;
-			atlOffset=-5.1498413e-005;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -8094,7 +8476,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={19078.115,31.144878,13283.335};
-						angles[]={0,4.2462802,0};
+						angles[]={0,4.2462816,0};
 					};
 					side="West";
 					flags=7;
@@ -8102,7 +8484,7 @@ class Mission
 					{
 						rank="SERGEANT";
 						init="[this, ""US_SCOUT_TL"", ""Ghost 2 | Ghost Platoon""] call FNC_GearScript;     [this, ""ACRE_PRC343"", 14] call FNC_SetRadio;                              [this, ""ACRE_PRC148"", 4] call FNC_SetRadio;";
-						description="Ghost 2 | Section Leader";
+						description="Ghost 2 | Section Leader@Ghost 2";
 						isPlayable=1;
 					};
 					id=645;
@@ -8412,8 +8794,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={19094.986,29.894342,13326.459};
-						angles[]={0,5.7139916,0};
+						position[]={19094.986,29.8943,13326.46};
+						angles[]={0,5.7139983,0};
 					};
 					side="West";
 					flags=7;
@@ -8421,17 +8803,37 @@ class Mission
 					{
 						rank="SERGEANT";
 						init="[this, ""US_MRTR_SL"", ""Punisher 6 | Alpha COY Mortar Team""] call FNC_GearScript;                                                           [this, ""ACRE_PRC343"", 15] call FNC_SetRadio;";
-						description="Punisher 6 | Squad Leader";
+						description="Punisher 6 | Squad Leader@Punisher 6";
 						isPlayable=1;
 					};
 					id=650;
 					type="B_Soldier_SL_F";
+					atlOffset=1.9073486e-006;
 					class CustomAttributes
 					{
 						class Attribute0
 						{
-							property="uo_unitDescription";
-							expression="_this setVariable ['uo_unitDescription', _value];";
+							property="acex_headless_blacklist";
+							expression="_this setVariable [""acex_headless_blacklist"",_value,true]";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
 							class Value
 							{
 								class data
@@ -8443,11 +8845,11 @@ class Mission
 											"STRING"
 										};
 									};
-									value="true";
+									value="Male06ENG";
 								};
 							};
 						};
-						class Attribute1
+						class Attribute2
 						{
 							property="pitch";
 							expression="_this setpitch _value;";
@@ -8466,7 +8868,26 @@ class Mission
 								};
 							};
 						};
-						nAttributes=2;
+						class Attribute3
+						{
+							property="uo_unitDescription";
+							expression="_this setVariable ['uo_unitDescription', _value];";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="true";
+								};
+							};
+						};
+						nAttributes=4;
 					};
 				};
 				class Item1
@@ -8721,6 +9142,7 @@ class Mission
 			{
 			};
 			id=649;
+			atlOffset=1.9073486e-006;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -18296,7 +18718,7 @@ class Mission
 			};
 			id=1639;
 			type="rhs_Kornet_9M133_2_msv";
-			atlOffset=0.19148254;
+			atlOffset=0.18305206;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -18901,7 +19323,7 @@ class Mission
 						rank="CAPTAIN";
 						init="[this, ""RU_PL"", ""Ruda 130 | Company HQ""] call FNC_GearScript;";
 						name="crew7";
-						description="Ruda 130 | COY Commander";
+						description="Ruda 130 | COY Commander@Ruda 130";
 						isPlayable=1;
 					};
 					id=1664;
@@ -19532,7 +19954,7 @@ class Mission
 					{
 						rank="LIEUTENANT";
 						init="[this, ""RU_PL"", ""Ruda 131 | 1 PLT HQ""] call FNC_GearScript;               [this, ""ACRE_PRC343"", 2] call FNC_SetRadio;";
-						description="Ruda 131 | PLT Commander";
+						description="Ruda 131 | PLT Commander@Ruda 131 HQ";
 						isPlayable=1;
 					};
 					id=1670;
@@ -19542,8 +19964,27 @@ class Mission
 					{
 						class Attribute0
 						{
-							property="uo_unitDescription";
-							expression="_this setVariable ['uo_unitDescription', _value];";
+							property="acex_headless_blacklist";
+							expression="_this setVariable [""acex_headless_blacklist"",_value,true]";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
 							class Value
 							{
 								class data
@@ -19555,11 +19996,11 @@ class Mission
 											"STRING"
 										};
 									};
-									value="true";
+									value="Male02PER";
 								};
 							};
 						};
-						class Attribute1
+						class Attribute2
 						{
 							property="pitch";
 							expression="_this setpitch _value;";
@@ -19578,7 +20019,26 @@ class Mission
 								};
 							};
 						};
-						nAttributes=2;
+						class Attribute3
+						{
+							property="uo_unitDescription";
+							expression="_this setVariable ['uo_unitDescription', _value];";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="true";
+								};
+							};
+						};
+						nAttributes=4;
 					};
 				};
 				class Item1
@@ -19748,7 +20208,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={17882.375,67.02243,15704.61};
+						position[]={17882.375,67.022438,15704.61};
 						angles[]={0,4.2827587,0};
 					};
 					side="East";
@@ -19757,18 +20217,37 @@ class Mission
 					{
 						rank="SERGEANT";
 						init="[this, ""RU_SL"", ""Ruda 131 | 1 PLT""] call FNC_GearScript;                  [this, ""ACRE_PRC343"", 3] call FNC_SetRadio;";
-						description="Ruda 131 | Squad Leader";
+						description="Ruda 131 | Squad Leader@Ruda 131";
 						isPlayable=1;
 					};
 					id=1684;
 					type="O_Soldier_SL_F";
-					atlOffset=-1.5258789e-005;
+					atlOffset=-7.6293945e-006;
 					class CustomAttributes
 					{
 						class Attribute0
 						{
-							property="uo_unitDescription";
-							expression="_this setVariable ['uo_unitDescription', _value];";
+							property="acex_headless_blacklist";
+							expression="_this setVariable [""acex_headless_blacklist"",_value,true]";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
 							class Value
 							{
 								class data
@@ -19780,11 +20259,11 @@ class Mission
 											"STRING"
 										};
 									};
-									value="true";
+									value="Male01PER";
 								};
 							};
 						};
-						class Attribute1
+						class Attribute2
 						{
 							property="pitch";
 							expression="_this setpitch _value;";
@@ -19803,7 +20282,26 @@ class Mission
 								};
 							};
 						};
-						nAttributes=2;
+						class Attribute3
+						{
+							property="uo_unitDescription";
+							expression="_this setVariable ['uo_unitDescription', _value];";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="true";
+								};
+							};
+						};
+						nAttributes=4;
 					};
 				};
 				class Item1
@@ -20495,7 +20993,7 @@ class Mission
 				};
 			};
 			id=1683;
-			atlOffset=-1.5258789e-005;
+			atlOffset=-7.6293945e-006;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -20541,7 +21039,7 @@ class Mission
 					{
 						rank="SERGEANT";
 						init="[this, ""RU_SL"", ""Ruda 132 | 1 PLT""] call FNC_GearScript;                  [this, ""ACRE_PRC343"", 4] call FNC_SetRadio;";
-						description="Ruda 132 | Squad Leader";
+						description="Ruda 132 | Squad Leader@Ruda 132";
 						isPlayable=1;
 					};
 					id=1694;
@@ -20550,8 +21048,27 @@ class Mission
 					{
 						class Attribute0
 						{
-							property="uo_unitDescription";
-							expression="_this setVariable ['uo_unitDescription', _value];";
+							property="acex_headless_blacklist";
+							expression="_this setVariable [""acex_headless_blacklist"",_value,true]";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
 							class Value
 							{
 								class data
@@ -20563,11 +21080,11 @@ class Mission
 											"STRING"
 										};
 									};
-									value="true";
+									value="Male01PER";
 								};
 							};
 						};
-						class Attribute1
+						class Attribute2
 						{
 							property="pitch";
 							expression="_this setpitch _value;";
@@ -20586,7 +21103,26 @@ class Mission
 								};
 							};
 						};
-						nAttributes=2;
+						class Attribute3
+						{
+							property="uo_unitDescription";
+							expression="_this setVariable ['uo_unitDescription', _value];";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="true";
+								};
+							};
+						};
+						nAttributes=4;
 					};
 				};
 				class Item1
@@ -21284,7 +21820,7 @@ class Mission
 					{
 						rank="SERGEANT";
 						init="[this, ""RU_SL"", ""Ruda 133 | 1 PLT""] call FNC_GearScript;                  [this, ""ACRE_PRC343"", 5] call FNC_SetRadio;";
-						description="Ruda 133 | Squad Leader";
+						description="Ruda 133 | Squad Leader@Ruda 133";
 						isPlayable=1;
 					};
 					id=1704;
@@ -22141,7 +22677,7 @@ class Mission
 					{
 						rank="LIEUTENANT";
 						init="[this, ""RU_PL"", ""Nalog 6 | Heavy Weapons PLT""] call FNC_GearScript;       [this, ""ACRE_PRC343"", 6] call FNC_SetRadio;                              [this, ""ACRE_PRC148"", 2] call FNC_SetRadio;";
-						description="Nalog 6 | PLT Commander";
+						description="Nalog 6 | PLT Commander@Nalog 6 PLT HQ";
 						isPlayable=1;
 					};
 					id=1723;
@@ -22151,8 +22687,27 @@ class Mission
 					{
 						class Attribute0
 						{
-							property="uo_unitDescription";
-							expression="_this setVariable ['uo_unitDescription', _value];";
+							property="acex_headless_blacklist";
+							expression="_this setVariable [""acex_headless_blacklist"",_value,true]";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
 							class Value
 							{
 								class data
@@ -22164,11 +22719,11 @@ class Mission
 											"STRING"
 										};
 									};
-									value="true";
+									value="Male01PER";
 								};
 							};
 						};
-						class Attribute1
+						class Attribute2
 						{
 							property="pitch";
 							expression="_this setpitch _value;";
@@ -22187,7 +22742,26 @@ class Mission
 								};
 							};
 						};
-						nAttributes=2;
+						class Attribute3
+						{
+							property="uo_unitDescription";
+							expression="_this setVariable ['uo_unitDescription', _value];";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="true";
+								};
+							};
+						};
+						nAttributes=4;
 					};
 				};
 				class Item1
@@ -22366,7 +22940,7 @@ class Mission
 					{
 						rank="SERGEANT";
 						init="[this, ""RU_SL"", ""Nalog 6 | Heavy Weapons PLT""] call FNC_GearScript;       [this, ""ACRE_PRC343"", 9] call FNC_SetRadio;                              [this, ""ACRE_PRC148"", 2] call FNC_SetRadio;";
-						description="Nalog 6 | Kornet Commander";
+						description="Nalog 6 | Kornet Commander@Nalog 6 Kornet Team 1";
 						isPlayable=1;
 					};
 					id=1727;
@@ -22629,7 +23203,7 @@ class Mission
 					{
 						rank="SERGEANT";
 						init="[this, ""RU_SL"", ""Nalog 6 | Heavy Weapons PLT""] call FNC_GearScript;       [this, ""ACRE_PRC343"", 8] call FNC_SetRadio;                              [this, ""ACRE_PRC148"", 2] call FNC_SetRadio;";
-						description="Nalog 6 | Kornet Commander";
+						description="Nalog 6 | Kornet Commander@Nalog 6 Kornet Team 2";
 						isPlayable=1;
 					};
 					id=1737;
@@ -22921,7 +23495,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={17750.975,75.484001,15520.095};
-						angles[]={6.2818484,2.4428501,0.033321146};
+						angles[]={6.2818413,2.4428501,0.033318337};
 					};
 					side="East";
 					flags=6;
@@ -22929,7 +23503,7 @@ class Mission
 					{
 						rank="SERGEANT";
 						init="[this, ""RU_SL"", ""Nalog 6 | Heavy Weapons PLT""] call FNC_GearScript;       [this, ""ACRE_PRC343"", 7] call FNC_SetRadio;                              [this, ""ACRE_PRC148"", 2] call FNC_SetRadio;";
-						description="Nalog 6 | AGS-30 Commander";
+						description="Nalog 6 | AGS-30 Commander@Nalog 6 AGS-30 Team";
 						isPlayable=1;
 					};
 					id=1741;
@@ -22939,8 +23513,27 @@ class Mission
 					{
 						class Attribute0
 						{
-							property="uo_unitDescription";
-							expression="_this setVariable ['uo_unitDescription', _value];";
+							property="acex_headless_blacklist";
+							expression="_this setVariable [""acex_headless_blacklist"",_value,true]";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
 							class Value
 							{
 								class data
@@ -22952,11 +23545,11 @@ class Mission
 											"STRING"
 										};
 									};
-									value="true";
+									value="Male02PER";
 								};
 							};
 						};
-						class Attribute1
+						class Attribute2
 						{
 							property="pitch";
 							expression="_this setpitch _value;";
@@ -22975,7 +23568,26 @@ class Mission
 								};
 							};
 						};
-						nAttributes=2;
+						class Attribute3
+						{
+							property="uo_unitDescription";
+							expression="_this setVariable ['uo_unitDescription', _value];";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="true";
+								};
+							};
+						};
+						nAttributes=4;
 					};
 				};
 				class Item1
@@ -23154,7 +23766,7 @@ class Mission
 					{
 						rank="SERGEANT";
 						init="[this, ""RU_MRTR_SL"", ""Bagrets 5 | Mortar Team""] call FNC_GearScript;      [this, ""ACRE_PRC343"", 10] call FNC_SetRadio;";
-						description="Bagrets 5 | Squad Leader";
+						description="Bagrets 5 | Squad Leader@Bagrets 5";
 						isPlayable=1;
 					};
 					id=1745;
@@ -24145,7 +24757,7 @@ class Mission
 			};
 			id=1853;
 			type="Land_Pallet_F";
-			atlOffset=0.0030517578;
+			atlOffset=0.0031280518;
 		};
 		class Item414
 		{
