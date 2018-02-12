@@ -437,7 +437,7 @@ Thanks to Max, Gkenny, Perfk, Luiz Silvera, and Weapon X for helping to make thi
 ENDTAB;
 
 NEWTAB("Game Mastering") //This is shown for everyone
-In order to end the mission the GM should type 'condition = 1' for an Opfor victory. The GM should type 'condition = 2' for a Blufor victory.
+In order to end the mission the GM should use one of self-interaction options.
 ENDTAB;
 
 DISPLAYBRIEFING();
