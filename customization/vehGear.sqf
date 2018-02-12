@@ -35,7 +35,7 @@ switch (_type) do {
 	
 	["UK3CB_BAF_M6", 2] call FNC_AddItemVehicle;
 	["UK3CB_BAF_1Rnd_60mm_Mo_Shells", 50] call FNC_AddItemVehicle;
-	["UK3CB_BAF_1Rnd_60mm_Mo_Smoke_White", 25] call FNC_AddItemVehicle;
+	["UK3CB_BAF_1Rnd_60mm_Mo_WPSmoke_White", 25] call FNC_AddItemVehicle;
 	["rhsusf_assault_eagleaiii_ocp", 5] call FNC_AddItemVehicle;
 	
 	};
@@ -130,7 +130,7 @@ switch (_type) do {
 	
 	["UK3CB_BAF_M6", 1] call FNC_AddItemVehicle;
 	["UK3CB_BAF_1Rnd_60mm_Mo_Shells", 35] call FNC_AddItemVehicle;
-	["UK3CB_BAF_1Rnd_60mm_Mo_Smoke_White", 12] call FNC_AddItemVehicle;
+	["UK3CB_BAF_1Rnd_60mm_Mo_WPSmoke_White", 12] call FNC_AddItemVehicle;
 	["rhs_assault_umbts", 2] call FNC_AddItemVehicle;
 	
 	};
