@@ -6,12 +6,12 @@ ACE_weather_syncWind = false;
 ACE_wind = [0,0,0];
 setWind [2,2, true];
 
-ace_repair_engineerSetting_repair = 1;
-ace_repair_engineerSetting_wheel = 1;
+ace_repair_engineerSetting_repair = 0;
+ace_repair_engineerSetting_wheel = 0;
 ace_repair_repairDamageThreshold = 1;
 ace_repair_repairDamageThreshold_engineer = 1;
 ace_repair_fullRepairLocation = 1;
-ace_repair_engineerSetting_fullRepair = 1;
+ace_repair_engineerSetting_fullRepair = 0;
 ace_repair_wheelRepairRequiredItems = 1;
 
 if (isServer) then { //This scope is only for the server
@@ -115,68 +115,71 @@ if (isServer) then { //This scope is only for the server
 
 };
 
-	if (!isDedicated) then { //This scope is only for the player
+if (!isDedicated) then { //This scope is only for the player
+
+	FW_DebugMessagesEnabled = true;//Only disable debug messages when the mission is released
+
+	setViewDistance 3000; //View distance for the player
 	
-		FW_DebugMessagesEnabled = true;//Only disable debug messages when the mission is released
-	
-		setViewDistance 3000; //View distance for the player
-		
-		//ACE
-		//Who can use SurgicalKit. 0 = anyone, 1 = Medics, 2 = Doctors
-		ace_medical_medicSetting_SurgicalKit = 2;
-		//Remove SurgicalKit on use. 0 = no, 1 = yes.
-		ace_medical_consumeItem_SurgicalKit = 0;
-		//Where can SurgicalKits be used (see also Condition below). 0 = Anywhere, 1 = Medical Vehicles, 2 = Medical Facility, 3 = Vheicles and Facility, 0 = disabled.
-		ace_medical_useLocation_SurgicalKit = 0;
-		//When can the SuricalKit be used. 0 = Anytime, 1 = When pation is stable (no pain, bleeding)
-		ace_medical_useCondition_SurgicalKit = 1;
+	//ACE
+	//Who can use SurgicalKit. 0 = anyone, 1 = Medics, 2 = Doctors
+	ace_medical_medicSetting_SurgicalKit = 2;
+	//Remove SurgicalKit on use. 0 = no, 1 = yes.
+	ace_medical_consumeItem_SurgicalKit = 0;
+	//Where can SurgicalKits be used (see also Condition below). 0 = Anywhere, 1 = Medical Vehicles, 2 = Medical Facility, 3 = Vheicles and Facility, 0 = disabled.
+	ace_medical_useLocation_SurgicalKit = 0;
+	//When can the SuricalKit be used. 0 = Anytime, 1 = When pation is stable (no pain, bleeding)
+	ace_medical_useCondition_SurgicalKit = 1;
 
-			FW_terrainGridPFH_handle = [{
-        if (time > 0 && {getTerrainGrid != 2}) then {
-            setTerrainGrid 2;
-        };
-		}, 1] call CBA_fnc_addPerFrameHandler;
-
-		[{!isNull (findDisplay 46)},
-		{
-			(findDisplay 46) displayAddEventHandler ["MouseMoving", {
-				if (serverCommandAvailable "#kick") then {
-					FW_IsAdmin = true;
-				} else {
-					FW_IsAdmin = false;
-				};
-			}];
-		}] call CBA_fnc_WaitUntilAndExecute;
-		
-		_action = ["end_red", "End mission, winner: MSV", "", {
-			"MSV VICTORY" remoteExecCall ["FNC_EndMission", 2];
-		}, {!isNil "FW_IsAdmin" && {FW_IsAdmin}}] call ace_interact_menu_fnc_createAction;
-		[player, 1, ["ACE_SelfActions"], _action] call ace_interact_menu_fnc_addActionToObject;
-		
-		_action = ["end_blu", "End mission, winner: US Army", "", {
-			"US ARMY VICTORY" remoteExecCall ["FNC_EndMission", 2];
-		}, {!isNil "FW_IsAdmin" && {FW_IsAdmin}}] call ace_interact_menu_fnc_createAction;
-		[player, 1, ["ACE_SelfActions"], _action] call ace_interact_menu_fnc_addActionToObject;
-
-	
-		if (!(isNil "MED01")) then { MED01 setVariable ["ace_medical_medicClass",2,true]; };
-		if (!(isNil "MED02")) then { MED02 setVariable ["ace_medical_medicClass",2,true]; };
-		if (!(isNil "MED03")) then { MED03 setVariable ["ace_medical_medicClass",2,true]; };
-		if (!(isNil "MED04")) then { MED04 setVariable ["ace_medical_medicClass",2,true]; };
-		if (!(isNil "MED05")) then { MED05 setVariable ["ace_medical_medicClass",2,true]; };
-		if (!(isNil "MED06")) then { MED06 setVariable ["ace_medical_medicClass",2,true]; };
-		if (!(isNil "MED07")) then { MED07 setVariable ["ace_medical_medicClass",2,true]; };
-		if (!(isNil "MED08")) then { MED08 setVariable ["ace_medical_medicClass",2,true]; };
-		if (!(isNil "MED09")) then { MED09 setVariable ["ace_medical_medicClass",2,true]; };
-
-		if (!(isNil "ODA01")) then { ODA01 setVariable ["ace_medical_medicClass",1,true]; };
-		if (!(isNil "ODA02")) then { ODA02 setVariable ["ace_medical_medicClass",1,true]; };
-		if (!(isNil "ODA03")) then { ODA03 setVariable ["ace_medical_medicClass",1,true]; };
-		if (!(isNil "ODA04")) then { ODA04 setVariable ["ace_medical_medicClass",1,true]; };
-		if (!(isNil "ODA05")) then { ODA05 setVariable ["ace_medical_medicClass",1,true]; };
-		if (!(isNil "ODA06")) then { ODA06 setVariable ["ace_medical_medicClass",1,true]; };
-		//Set Unit as ACE medic/doctor - 1 = Medic, 2 = Doctor
-		//if (!(isNil "UnitName")) then { UnitName setVariable ["ace_medical_medicClass",1,true]; };
-		//if (!(isNil "UnitName")) then { UnitName setVariable ["ace_medical_medicClass",2,true]; };
-
+		FW_terrainGridPFH_handle = [{
+	if (time > 0 && {getTerrainGrid != 2}) then {
+		setTerrainGrid 2;
 	};
+	}, 1] call CBA_fnc_addPerFrameHandler;
+
+	[{!isNull (findDisplay 46)},
+	{
+		(findDisplay 46) displayAddEventHandler ["MouseMoving", {
+			if (serverCommandAvailable "#kick") then {
+				FW_IsAdmin = true;
+			} else {
+				FW_IsAdmin = false;
+			};
+		}];
+	}] call CBA_fnc_WaitUntilAndExecute;
+	
+	_action = ["admin_menu", "Admin Menu", "", {}, {!isNil "FW_IsAdmin" && {FW_IsAdmin}}] call ace_interact_menu_fnc_createAction;
+	[player, 1, ["ACE_SelfActions"], _action] call ace_interact_menu_fnc_addActionToObject;
+
+	_action = ["end_red", "End mission, winner: MSV", "", {
+		"MSV VICTORY" remoteExecCall ["FNC_EndMission", 2];
+	}, {!isNil "FW_IsAdmin" && {FW_IsAdmin}}] call ace_interact_menu_fnc_createAction;
+	[player, 1, ["ACE_SelfActions", "admin_menu"], _action] call ace_interact_menu_fnc_addActionToObject;
+	
+	_action = ["end_blu", "End mission, winner: US Army", "", {
+		"US ARMY VICTORY" remoteExecCall ["FNC_EndMission", 2];
+	}, {!isNil "FW_IsAdmin" && {FW_IsAdmin}}] call ace_interact_menu_fnc_createAction;
+	[player, 1, ["ACE_SelfActions", "admin_menu"], _action] call ace_interact_menu_fnc_addActionToObject;
+
+
+	if (!(isNil "MED01")) then { MED01 setVariable ["ace_medical_medicClass",2,true]; };
+	if (!(isNil "MED02")) then { MED02 setVariable ["ace_medical_medicClass",2,true]; };
+	if (!(isNil "MED03")) then { MED03 setVariable ["ace_medical_medicClass",2,true]; };
+	if (!(isNil "MED04")) then { MED04 setVariable ["ace_medical_medicClass",2,true]; };
+	if (!(isNil "MED05")) then { MED05 setVariable ["ace_medical_medicClass",2,true]; };
+	if (!(isNil "MED06")) then { MED06 setVariable ["ace_medical_medicClass",2,true]; };
+	if (!(isNil "MED07")) then { MED07 setVariable ["ace_medical_medicClass",2,true]; };
+	if (!(isNil "MED08")) then { MED08 setVariable ["ace_medical_medicClass",2,true]; };
+	if (!(isNil "MED09")) then { MED09 setVariable ["ace_medical_medicClass",2,true]; };
+
+	if (!(isNil "ODA01")) then { ODA01 setVariable ["ace_medical_medicClass",1,true]; };
+	if (!(isNil "ODA02")) then { ODA02 setVariable ["ace_medical_medicClass",1,true]; };
+	if (!(isNil "ODA03")) then { ODA03 setVariable ["ace_medical_medicClass",1,true]; };
+	if (!(isNil "ODA04")) then { ODA04 setVariable ["ace_medical_medicClass",1,true]; };
+	if (!(isNil "ODA05")) then { ODA05 setVariable ["ace_medical_medicClass",1,true]; };
+	if (!(isNil "ODA06")) then { ODA06 setVariable ["ace_medical_medicClass",1,true]; };
+	//Set Unit as ACE medic/doctor - 1 = Medic, 2 = Doctor
+	//if (!(isNil "UnitName")) then { UnitName setVariable ["ace_medical_medicClass",1,true]; };
+	//if (!(isNil "UnitName")) then { UnitName setVariable ["ace_medical_medicClass",2,true]; };
+
+};
