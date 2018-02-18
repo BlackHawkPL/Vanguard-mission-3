@@ -4,7 +4,7 @@ ace_cookoff_enableAmmoCookoff = false;
 ace_hearing_enableCombatDeafness = false;
 ACE_weather_syncWind = false;
 ACE_wind = [0,0,0];
-setWind [2,2, true];
+setWind [1,1, true];
 
 ace_repair_engineerSetting_repair = 0;
 ace_repair_engineerSetting_wheel = 0;
