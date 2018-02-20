@@ -8,18 +8,18 @@ class EditorData
 	toggles=513;
 	class ItemIDProvider
 	{
-		nextID=1866;
+		nextID=1876;
 	};
 	class MarkerIDProvider
 	{
-		nextID=269;
+		nextID=270;
 	};
 	class Camera
 	{
-		pos[]={17106.627,234.8414,16212.104};
-		dir[]={0.61572397,-0.52876246,-0.58441234};
-		up[]={0.38364908,0.84860897,-0.3641386};
-		aside[]={-0.68851161,-2.7395727e-006,-0.72540939};
+		pos[]={14066.859,48.637493,18681.424};
+		dir[]={-0.63758177,-0.44319725,-0.63018924};
+		up[]={-0.31523046,0.89641219,-0.31157523};
+		aside[]={-0.70299935,1.9243453e-007,0.71124744};
 	};
 };
 binarizationWanted=0;
@@ -52,6 +52,7 @@ addons[]=
 	"A3_Structures_F_Civ_Constructions",
 	"rhsusf_c_HEMTT_A4",
 	"ace_compat_rhs_usf3",
+	"A3_Modules_F",
 	"rhs_c_trucks"
 };
 class AddonsMetaData
@@ -293,7 +294,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=420;
+		items=424;
 		class Item0
 		{
 			dataType="Marker";
@@ -25147,24 +25148,26 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={18968.053,29.004768,13466.364};
-				angles[]={0.10626548,5.7889147,6.2099833};
+				position[]={19968.613,60.907692,11423.838};
+				angles[]={6.2645278,0.606659,6.2818413};
 			};
 			side="Empty";
 			flags=4;
 			class Attributes
 			{
-				init="call{if (local this) then {[this, 16] call ace_cargo_fnc_setSpace; for ""_i"" from 1 to 3 do {[""ACE_Track"", this] call ace_cargo_fnc_loadItem; [""ACE_Wheel"", this] call ace_cargo_fnc_loadItem}; [""ACE_Track"", this] call ace_cargo_fnc_loadItem}}";
+				lock="LOCKED";
+				init="call{this addAction [""repair vehicle"", { " \n " [] spawn { " \n "  private _veh = (nearestObject [hemtt, ""Tank""]); " \n "  if (isNull _veh) exitWith {systemChat ""No vehicle within 50m, aborting""}; " \n "  systemChat ""Vehicle will be repaired in 10 minutes""; " \n "  [_veh, 0] remoteExec [""setFuel"", _veh]; " \n "  sleep 600; " \n "  _veh setDamage 0; " \n "  [_veh, 1] remoteExec [""setFuel"", _veh]; " \n "  systemChat ""Vehicle repaired!""; " \n " }; " \n "}]}";
 				name="hemtt";
+				disableSimulation=1;
 			};
-			id=1862;
+			id=1866;
 			type="rhsusf_M977A4_REPAIR_usarmy_wd";
 			class CustomAttributes
 			{
 				class Attribute0
 				{
-					property="ace_refuel_fuelCargo";
-					expression="if (_value != (if (isNumber (configFile >> 'CfgVehicles' >> typeOf _this >> ""ace_refuel_fuelCargo"")) then {getNumber (configFile >> 'CfgVehicles' >> typeOf _this >> ""ace_refuel_fuelCargo"")} else {-1})) then {[_this,_value] call ace_refuel_fnc_makeSource}";
+					property="uo_unitDescription";
+					expression="_this setVariable ['uo_unitDescription', _value];";
 					class Value
 					{
 						class data
@@ -25173,14 +25176,33 @@ class Mission
 							{
 								type[]=
 								{
-									"SCALAR"
+									"STRING"
 								};
 							};
-							value=-10;
+							value="true";
 						};
 					};
 				};
 				class Attribute1
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				class Attribute2
 				{
 					property="ammoBox";
 					expression="[_this,_value] call bis_fnc_initAmmoBox;";
@@ -25199,7 +25221,26 @@ class Mission
 						};
 					};
 				};
-				class Attribute2
+				class Attribute3
+				{
+					property="ace_refuel_fuelCargo";
+					expression="if (_value != (if (isNumber (configFile >> 'CfgVehicles' >> typeOf _this >> ""ace_refuel_fuelCargo"")) then {getNumber (configFile >> 'CfgVehicles' >> typeOf _this >> ""ace_refuel_fuelCargo"")} else {-1})) then {[_this,_value] call ace_refuel_fnc_makeSource}";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=-1;
+						};
+					};
+				};
+				class Attribute4
 				{
 					property="ace_isRepairVehicle";
 					expression="_this setVariable ['ace_isRepairVehicle',_value, true];";
@@ -25214,11 +25255,11 @@ class Mission
 									"SCALAR"
 								};
 							};
-							value=1;
+							value=0;
 						};
 					};
 				};
-				class Attribute3
+				class Attribute5
 				{
 					property="ace_cargo_space";
 					expression="[_this,_value] call ace_cargo_fnc_setSpace;";
@@ -25237,7 +25278,7 @@ class Mission
 						};
 					};
 				};
-				class Attribute4
+				class Attribute6
 				{
 					property="ace_refuel_hooks";
 					expression="if !(_value isEqualTo (if (isArray (configFile >> 'CfgVehicles' >> typeOf _this >> ""ace_refuel_hooks"")) then {getArray (configFile >> 'CfgVehicles' >> typeOf _this >> ""ace_refuel_hooks"") select 0} else {[0,0,0]})) then {_this setVariable ['ace_refuel_hooks',[_value],true]}";
@@ -25301,10 +25342,10 @@ class Mission
 						};
 					};
 				};
-				class Attribute5
+				class Attribute7
 				{
-					property="uo_unitDescription";
-					expression="_this setVariable ['uo_unitDescription', _value];";
+					property="ace_cookoff_enable";
+					expression="if !(_value) then {_this setVariable ['ace_cookoff_enable',_value,true];};";
 					class Value
 					{
 						class data
@@ -25313,32 +25354,46 @@ class Mission
 							{
 								type[]=
 								{
-									"STRING"
+									"BOOL"
 								};
 							};
-							value="true";
+							value=0;
 						};
 					};
 				};
-				nAttributes=6;
+				nAttributes=8;
 			};
 		};
 		class Item419
 		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={19983.344,59.845543,11426.852};
+			};
+			name="rpb";
+			id=1868;
+			type="Logic";
+			atlOffset=3.8146973e-006;
+		};
+		class Item420
+		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={17880.744,67.297371,15716.642};
-				angles[]={0.099675752,3.7668743,0.042638395};
+				position[]={15206.379,18.524258,17452.807};
+				angles[]={0.011990411,3.2480752,0.0093200579};
 			};
 			side="Empty";
 			flags=4;
 			class Attributes
 			{
-				init="call{if (local this) then {[this, 16] call ace_cargo_fnc_setSpace; for ""_i"" from 1 to 3 do {[""ACE_Track"", this] call ace_cargo_fnc_loadItem; [""ACE_Wheel"", this] call ace_cargo_fnc_loadItem}; [""ACE_Track"", this] call ace_cargo_fnc_loadItem}}";
-				name="repair_truck";
+				lock="LOCKED";
+				init="call{this addAction [""repair vehicle"", { " \n " [] spawn { " \n "  private _veh = (nearestObject [repair_truck_2, ""Tank""]); " \n "  if (isNull _veh) exitWith {systemChat ""No vehicle within 50m, aborting""}; " \n "  systemChat ""Vehicle will be repaired in 10 minutes""; " \n "  [_veh, 0] remoteExec [""setFuel"", _veh]; " \n "  sleep 600; " \n "  _veh setDamage 0; " \n "  [_veh, 1] remoteExec [""setFuel"", _veh]; " \n "  systemChat ""Vehicle repaired!""; " \n " }; " \n "}]}";
+				name="repair_truck_2";
+				disableSimulation=1;
 			};
-			id=1864;
+			id=1871;
 			type="rhs_gaz66_repair_msv";
 			class CustomAttributes
 			{
@@ -25401,6 +25456,25 @@ class Mission
 				};
 				class Attribute3
 				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				class Attribute4
+				{
 					property="ammoBox";
 					expression="[_this,_value] call bis_fnc_initAmmoBox;";
 					class Value
@@ -25418,7 +25492,7 @@ class Mission
 						};
 					};
 				};
-				class Attribute4
+				class Attribute5
 				{
 					property="rhs_decalArmy_type";
 					expression="_this setVariable ['rhs_decalArmy_type', _value];";
@@ -25437,7 +25511,7 @@ class Mission
 						};
 					};
 				};
-				class Attribute5
+				class Attribute6
 				{
 					property="ace_refuel_fuelCargo";
 					expression="if (_value != (if (isNumber (configFile >> 'CfgVehicles' >> typeOf _this >> ""ace_refuel_fuelCargo"")) then {getNumber (configFile >> 'CfgVehicles' >> typeOf _this >> ""ace_refuel_fuelCargo"")} else {-1})) then {[_this,_value] call ace_refuel_fnc_makeSource}";
@@ -25452,11 +25526,11 @@ class Mission
 									"SCALAR"
 								};
 							};
-							value=-10;
+							value=-1;
 						};
 					};
 				};
-				class Attribute6
+				class Attribute7
 				{
 					property="ace_isRepairVehicle";
 					expression="_this setVariable ['ace_isRepairVehicle',_value, true];";
@@ -25471,11 +25545,11 @@ class Mission
 									"SCALAR"
 								};
 							};
-							value=1;
+							value=0;
 						};
 					};
 				};
-				class Attribute7
+				class Attribute8
 				{
 					property="rhs_decalArmy";
 					expression="if(parseNumber _value >= 0)then{ [_this, [ [ 'Label', cTrucksGazRightArmyPlaces,  _this getVariable ['rhs_decalArmy_type','Army'],call compile _value] ] ] call rhs_fnc_decalsInit};";
@@ -25494,7 +25568,7 @@ class Mission
 						};
 					};
 				};
-				class Attribute8
+				class Attribute9
 				{
 					property="ace_cargo_space";
 					expression="[_this,_value] call ace_cargo_fnc_setSpace;";
@@ -25513,7 +25587,7 @@ class Mission
 						};
 					};
 				};
-				class Attribute9
+				class Attribute10
 				{
 					property="ace_refuel_hooks";
 					expression="if !(_value isEqualTo (if (isArray (configFile >> 'CfgVehicles' >> typeOf _this >> ""ace_refuel_hooks"")) then {getArray (configFile >> 'CfgVehicles' >> typeOf _this >> ""ace_refuel_hooks"") select 0} else {[0,0,0]})) then {_this setVariable ['ace_refuel_hooks',[_value],true]}";
@@ -25577,7 +25651,7 @@ class Mission
 						};
 					};
 				};
-				class Attribute10
+				class Attribute11
 				{
 					property="rhs_decalPlatoon";
 					expression="if(parseNumber _value >= 0)then{ [_this, [ [ 'Label', cTrucksGazRightPlatoonPlaces,  _this getVariable ['rhs_decalPlatoon_type','Army'],call compile _value] ] ] call rhs_fnc_decalsInit};";
@@ -25596,8 +25670,58 @@ class Mission
 						};
 					};
 				};
-				nAttributes=11;
+				class Attribute12
+				{
+					property="ace_cookoff_enable";
+					expression="if !(_value) then {_this setVariable ['ace_cookoff_enable',_value,true];};";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				nAttributes=13;
 			};
+		};
+		class Item421
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={15218.798,17.249031,17450.943};
+			};
+			name="rpr";
+			id=1872;
+			type="Logic";
+		};
+		class Item422
+		{
+			dataType="Marker";
+			position[]={15211.317,17.143,17456.16};
+			name="rprm";
+			text="Repair point";
+			type="mil_box";
+			id=1873;
+			atlOffset=-2.2888184e-005;
+		};
+		class Item423
+		{
+			dataType="Marker";
+			position[]={19982.102,59.835999,11424.986};
+			name="rpbm";
+			text="Repair point";
+			type="mil_box";
+			id=1874;
+			atlOffset=0.00045013428;
 		};
 	};
 };

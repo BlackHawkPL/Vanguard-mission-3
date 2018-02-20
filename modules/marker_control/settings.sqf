@@ -132,3 +132,6 @@ ADDMARKER(east, "marker_259");
 ADDMARKER(east, "marker_260");
 ADDMARKER(east, "marker_261");
 ADDMARKER(east, "marker_262");
+
+ADDMARKER(west, "rpbm");
+ADDMARKER(east, "rprm");
