@@ -271,7 +271,7 @@ class Mission
 	class Intel
 	{
 		briefingName="TVT134 OP ROAD WARRIOR PART 3 V1";
-		overviewText="The final mission in the OP Vanguard event.";
+		overviewText="The third mission in the Road Warrior Event.";
 		timeOfChanges=1800.0002;
 		startWeather=0.30000001;
 		startWind=0.1;
@@ -3729,8 +3729,8 @@ class Mission
 					{
 						class Attribute0
 						{
-							property="uo_unitDescription";
-							expression="_this setVariable ['uo_unitDescription', _value];";
+							property="face";
+							expression="_this setface _value;";
 							class Value
 							{
 								class data
@@ -3742,7 +3742,7 @@ class Mission
 											"STRING"
 										};
 									};
-									value="true";
+									value="AfricanHead_03";
 								};
 							};
 						};
@@ -3767,8 +3767,8 @@ class Mission
 						};
 						class Attribute2
 						{
-							property="face";
-							expression="_this setface _value;";
+							property="uo_unitDescription";
+							expression="_this setVariable ['uo_unitDescription', _value];";
 							class Value
 							{
 								class data
@@ -3780,7 +3780,7 @@ class Mission
 											"STRING"
 										};
 									};
-									value="AfricanHead_03";
+									value="true";
 								};
 							};
 						};
@@ -15162,7 +15162,7 @@ class Mission
 			};
 			id=1357;
 			type="Land_BagFence_Long_F";
-			atlOffset=3.4200039;
+			atlOffset=3.851553;
 		};
 		class Item243
 		{
@@ -15179,7 +15179,7 @@ class Mission
 			};
 			id=1358;
 			type="Land_BagFence_Long_F";
-			atlOffset=0.4580574;
+			atlOffset=4.3097744;
 		};
 		class Item244
 		{
@@ -15190,13 +15190,13 @@ class Mission
 				angles[]={0,4.4627843,6.2817206};
 			};
 			side="Empty";
-			flags=4;
 			class Attributes
 			{
 				disableSimulation=1;
 			};
 			id=1359;
 			type="Land_BagFence_Long_F";
+			atlOffset=0.4313221;
 		};
 		class Item245
 		{
@@ -15213,7 +15213,7 @@ class Mission
 			};
 			id=1360;
 			type="Land_BagFence_Long_F";
-			atlOffset=0.43306732;
+			atlOffset=0.86391068;
 		};
 		class Item246
 		{
@@ -15224,13 +15224,13 @@ class Mission
 				angles[]={0,6.006947,6.2817206};
 			};
 			side="Empty";
-			flags=4;
 			class Attributes
 			{
 				disableSimulation=1;
 			};
 			id=1361;
 			type="Land_BagFence_Long_F";
+			atlOffset=0.47968483;
 		};
 		class Item247
 		{
@@ -18757,7 +18757,7 @@ class Mission
 			};
 			id=1639;
 			type="rhs_Kornet_9M133_2_msv";
-			atlOffset=0.19148254;
+			atlOffset=0.18305206;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -24630,7 +24630,7 @@ class Mission
 			};
 			id=1771;
 			type="Land_BagFence_Long_F";
-			atlOffset=0.75392914;
+			atlOffset=1.60466;
 		};
 		class Item406
 		{
@@ -24852,7 +24852,7 @@ class Mission
 			};
 			id=1853;
 			type="Land_Pallet_F";
-			atlOffset=0.0030517578;
+			atlOffset=0.0031280518;
 		};
 		class Item414
 		{
